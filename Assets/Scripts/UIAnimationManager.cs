@@ -43,11 +43,8 @@ public class UIAnimationManager : MonoBehaviour, IPlayAnimations
     {
         if (animationID != String.Empty)
         {
-            Debug.Log("Playing animation clip/transition: " + animationID);
-
             if( animatorRef ) 
             {
-				Debug.Log("Animator != null");
 				Animator.StringToHash(animationID);
 				animatorRef.SetBool(animationID, true );
                 return true;
