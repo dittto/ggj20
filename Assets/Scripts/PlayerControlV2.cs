@@ -10,6 +10,7 @@ public class PlayerControlV2 : MonoBehaviour
     private int _isActiveFlag;
     private bool _isButtonHeld = false;
     private float _power;
+    private Animator playerAnimator;
     
     public Animator _directionAnimator;
     public Animator _arrowMaskAnimator;
@@ -26,6 +27,7 @@ public class PlayerControlV2 : MonoBehaviour
     public void Awake()
     {
         _isActiveFlag = Animator.StringToHash("isActive");
+        playerAnimator = GetComponent<Animator>();
         
         ShowDirection();
     }
@@ -77,6 +79,8 @@ public class PlayerControlV2 : MonoBehaviour
                 Mathf.Sin(Mathf.Deg2Rad * _direction.eulerAngles.z) * power
             )
         );
+
+        playerAnimator.SetTrigger("Thrust");
     }
 
     private void SetPower()

@@ -512,6 +512,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69cdea8de18822a4ca8be3fc186c23b2, type: 3}
+--- !u!1 &147358403 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7342297528188904872, guid: 943e569e7c22ab8449443b82decd0aea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1481731561}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &147358404
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147358403}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ed7197aa02ff4954e9cfce8315797c36, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &394178274
 GameObject:
   m_ObjectHideFlags: 0
@@ -1709,6 +1734,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69cdea8de18822a4ca8be3fc186c23b2, type: 3}
+--- !u!1 &1463453745 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8539049077876751941, guid: af71e97fc72452448b08829f1f936792,
+    type: 3}
+  m_PrefabInstance: {fileID: 1696652711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1463453750
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463453745}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a47e7d70de8a94f4c860430bf8e4e493, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1475565458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,6 +1861,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342297528188904874, guid: 943e569e7c22ab8449443b82decd0aea,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.1171875
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342297528188904874, guid: 943e569e7c22ab8449443b82decd0aea,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.3125
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342297528188904877, guid: 943e569e7c22ab8449443b82decd0aea,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342297528188904877, guid: 943e569e7c22ab8449443b82decd0aea,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7342297528188904879, guid: 943e569e7c22ab8449443b82decd0aea,
         type: 3}

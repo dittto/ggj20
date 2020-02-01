@@ -334,8 +334,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 50
-  m_LinearDrag: 0.5
-  m_AngularDrag: 1
+  m_LinearDrag: 0.1
+  m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -356,7 +356,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.1171875, y: 1.3125}
+  m_Size: {x: 0.42, y: 1.05}
   m_Direction: 0
 --- !u!232 &5341511127659350525
 DistanceJoint2D:
@@ -377,21 +377,6 @@ DistanceJoint2D:
   m_AutoConfigureDistance: 1
   m_Distance: 5.5319996
   m_MaxDistanceOnly: 1
-<<<<<<< HEAD
---- !u!114 &906924114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7342297528188904872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c99c502a9b475941a27fb78f555491b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-=======
->>>>>>> master
 --- !u!114 &6113253170358176308
 MonoBehaviour:
   m_ObjectHideFlags: 0
