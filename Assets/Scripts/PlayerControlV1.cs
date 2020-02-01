@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerControlV1 : MonoBehaviour
 {
@@ -15,6 +14,7 @@ public class PlayerControlV1 : MonoBehaviour
 
     public float _rotationSpeed;
     public float _moveSpeed;
+    public KeyCode _keyCode;
 
     public void Awake()
     {
@@ -23,16 +23,11 @@ public class PlayerControlV1 : MonoBehaviour
 
     public void Update()
     {
-        var keyboard = Keyboard.current;
-        if (keyboard == null) {
-            return;
-        }
-
-        if (keyboard.spaceKey.wasPressedThisFrame) {
+        if (Input.GetKeyDown(_keyCode)) {
             ShowDirection();
         }
 
-        if (keyboard.spaceKey.wasReleasedThisFrame) {
+        if (Input.GetKeyUp(_keyCode)) {
             MovePlayer();
             HideDirection();
         }
