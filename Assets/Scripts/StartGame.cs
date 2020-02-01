@@ -53,13 +53,9 @@ public class StartGame : MonoBehaviour
     {
         if (Input.anyKey && !startPressed)
         {
-			Debug.Log("Submit pressed.");
-
             // FIXME: LH: find way to stop clip from playing when this is done; Non-essential, as atm the scene ending stops it
             if( eventForwarder != null && animator)
             {
-				Debug.Log("EventForwarder != null");
-
 				eventForwarder.EnqueueEvent(new UIAnimationEventArgs(typeof(UIAnimationManager), this.GetType(), animator, transitionParameter));
                 eventForwarder.EnqueueEvent(new UIAudioEventArgs(typeof(UIAudioManager), this.GetType(), AUDIO_EVENT_TYPE.FADE_OUT_AUDIO, null));
             }

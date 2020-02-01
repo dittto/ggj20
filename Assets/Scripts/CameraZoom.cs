@@ -38,7 +38,6 @@ public class CameraZoom : MonoBehaviour
         if (args != null)
         {
             Type targetType = args.target;
-            Debug.Log(targetType.ToString());
             if (targetType.ToString() == "IntroCameraPan")
             {
                 StartCoroutine(RemoveOverlayAndActivatePlayers(2));
