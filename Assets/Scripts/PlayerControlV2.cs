@@ -17,6 +17,7 @@ public class PlayerControlV2 : MonoBehaviour
     public Transform _direction;
     public Transform _arrow;
     public Rigidbody2D _body;
+    public ParticleSystem thrustParticle;
 
     public float _rotationSpeed;
     public float _moveSpeed;
@@ -31,10 +32,6 @@ public class PlayerControlV2 : MonoBehaviour
 
     public void Update()
     {
-        var keyboard = Keyboard.current;
-        if (keyboard == null) {
-            return;
-        }
 
         if (!_isButtonHeld) {
             UpdateDirection();
@@ -54,7 +51,7 @@ public class PlayerControlV2 : MonoBehaviour
             MovePlayer();
             _power = 0;
             UpdateArrow();
-            
+            thrustParticle.Play();
         }
     }
 
