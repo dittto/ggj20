@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public class PlayerControlV2 : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class PlayerControlV2 : MonoBehaviour
 
     public float _rotationSpeed;
     public float _moveSpeed;
+    public KeyCode _keyCode;
 
     public void Awake()
     {
@@ -38,7 +40,7 @@ public class PlayerControlV2 : MonoBehaviour
             UpdateDirection();
         }
 
-        if (keyboard.spaceKey.wasPressedThisFrame) {
+        if (Input.GetKeyDown(_keyCode)) {
             _isButtonHeld = true;
         }
 
@@ -47,7 +49,7 @@ public class PlayerControlV2 : MonoBehaviour
             UpdateArrow();
         }
 
-        if (keyboard.spaceKey.wasReleasedThisFrame) {
+        if (Input.GetKeyUp(_keyCode)) {
             _isButtonHeld = false;
             MovePlayer();
             _power = 0;
@@ -71,7 +73,6 @@ public class PlayerControlV2 : MonoBehaviour
     private void MovePlayer()
     {
         var power = _power * _moveSpeed;
-        Debug.Log("power " + power);
         
         _body.AddForce(
             new Vector2(
