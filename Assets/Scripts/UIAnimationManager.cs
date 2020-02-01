@@ -48,18 +48,8 @@ public class UIAnimationManager : MonoBehaviour, IPlayAnimations
             if( animatorRef ) 
             {
 				Debug.Log("Animator != null");
-
-				//Animator.StringToHash(animationID);
-				//animator.SetBool( animationID, true );
-
-				animatorRef.SetBool("isGameStarted", true );
-
-				bool triggerValue = animatorRef.GetBool("isGameStarted");
-				String triggerValString = triggerValue.ToString();
-
-				String logString = "Animator Bool:" + animationID + triggerValString;
-
-				Debug.Log(logString);
+				Animator.StringToHash(animationID);
+				animatorRef.SetBool(animationID, true );
                 return true;
             }
         }

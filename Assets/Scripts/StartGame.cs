@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Animator))]
 public class StartGame : MonoBehaviour
@@ -65,17 +64,14 @@ public class StartGame : MonoBehaviour
                 eventForwarder.EnqueueEvent(new UIAudioEventArgs(typeof(UIAudioManager), this.GetType(), AUDIO_EVENT_TYPE.FADE_OUT_AUDIO, null));
             }
 
-            StartCoroutine(StartGameAfterAnimationEnd(clip.length));
+            StartCoroutine(PanCameraAfterAnimationEnd(clip.length));
 			startPressed = true;
         }
     }
 
-    private IEnumerator StartGameAfterAnimationEnd(float seconds)
+    private IEnumerator PanCameraAfterAnimationEnd(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        //SceneManager.LoadScene("LoadoutScreen");
-
-		// FIXME: LH:	play pan animation,
-		//				activate players
-    }
+		eventForwarder.EnqueueEvent(new UIEventArgsBase(typeof(IntroCameraPan), this.GetType()));
+	}
 }
