@@ -84,7 +84,8 @@ public class IntroCameraPan : MonoBehaviour
 	{
 		PlayAnimation(animator, "isPanStarted");
 		yield return new WaitForSeconds(seconds);
-		//eventForwarder.EnqueueEvent(new UIEventArgsBase(typeof(IntroCameraPan), this.GetType()));
 
+		eventForwarder.EnqueueEvent(new UIEventArgsBase(typeof(DissolveShipOverlay), this.GetType()));
+		eventForwarder.EnqueueEvent(new UIEventArgsBase(typeof(ActivatePlayers), this.GetType()));
 	}
 }
