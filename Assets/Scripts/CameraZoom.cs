@@ -64,7 +64,8 @@ public class CameraZoom : MonoBehaviour
         foreach (GameObject player in _players) {
             var pos = _camera.WorldToViewportPoint(player.transform.position);
             if (pos.x < _maxBoundary || pos.x > 1 - _maxBoundary || pos.y < _maxBoundary || pos.y > 1 - _maxBoundary) {
-                _camera.transform.localPosition = new Vector3(_camera.transform.localPosition.x, _camera.transform.localPosition.y, _camera.transform.localPosition.z - _cameraSpeedOut);
+                _camera.orthographicSize += _cameraSpeedOut;
+                // _camera.transform.localPosition = new Vector3(_camera.transform.localPosition.x, _camera.transform.localPosition.y, _camera.transform.localPosition.z - _cameraSpeedOut);
             }
         }
 
@@ -77,7 +78,8 @@ public class CameraZoom : MonoBehaviour
         }
 
         if (allIn) {
-            _camera.transform.localPosition = new Vector3(_camera.transform.localPosition.x, _camera.transform.localPosition.y, _camera.transform.localPosition.z + _cameraSpeedIn);
+            _camera.orthographicSize -= _cameraSpeedIn;
+            // _camera.transform.localPosition = new Vector3(_camera.transform.localPosition.x, _camera.transform.localPosition.y, _camera.transform.localPosition.z + _cameraSpeedIn);
         }
     }
 }
