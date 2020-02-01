@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: f30e732212b46f0459f5cf3c268469cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -111,7 +111,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!59 &4368713968833222869
 HingeJoint:
@@ -124,7 +124,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.26171875, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -6, y: 1.3085938, z: 0}
+  m_ConnectedAnchor: {x: 0, y: 1.3085938, z: 0}
   m_UseSpring: 0
   m_Spring:
     spring: 0
