@@ -51,7 +51,7 @@ public class StartGame : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButton("Submit") && !startPressed)
+        if (Input.anyKey && !startPressed)
         {
 			Debug.Log("Submit pressed.");
 
