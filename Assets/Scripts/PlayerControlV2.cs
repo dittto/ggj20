@@ -16,7 +16,7 @@ public class PlayerControlV2 : MonoBehaviour
     public Animator _arrowAnimator;
     public Transform _direction;
     public Transform _arrow;
-    public Rigidbody2D _body;
+    public Rigidbody _body;
     public ParticleSystem thrustParticle;
 
     public float _rotationSpeed;
@@ -72,9 +72,10 @@ public class PlayerControlV2 : MonoBehaviour
         var power = _power * _moveSpeed;
         
         _body.AddForce(
-            new Vector2(
+            new Vector3(
                 Mathf.Cos(Mathf.Deg2Rad * _direction.eulerAngles.z) * power, 
-                Mathf.Sin(Mathf.Deg2Rad * _direction.eulerAngles.z) * power
+                Mathf.Sin(Mathf.Deg2Rad * _direction.eulerAngles.z) * power,
+				0
             )
         );
     }
