@@ -22,7 +22,10 @@ public class PickupItem : MonoBehaviour
 		if( pickedUp )
 		{
 			// FIXME: LH: can at least cache this
-			parentTransform.position = parentTransform.parent.localPosition;
+			parentTransform.position = parentTransform.parent.position;
+				//new Vector3( parentTransform.parent.position.x,
+				//			parentTransform.parent.position.y,
+				//			0);
 		}
 	}
 
@@ -35,7 +38,7 @@ public class PickupItem : MonoBehaviour
 			GetComponent<AudioSource>().Stop();
 
 			// reparent to other.collider.transform?
-			parentTransform.SetParent(other.transform);
+			parentTransform.SetParent(other.transform, false);
 
 			pickedUp = true;
 		}
