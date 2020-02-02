@@ -44,8 +44,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 2.2418497
+  m_Center: {x: -0.108176455, y: -0.10824265, z: 0}
 --- !u!82 &5646067810456433456
 AudioSource:
   m_ObjectHideFlags: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
   turningOnClips:
   - {fileID: 8300000, guid: c01931636160bd94a9796d5fe53823af, type: 3}
   - {fileID: 8300000, guid: 75be816a2c8e26d448f8d6f894e68372, type: 3}
-  healthToTurnOn: 3
+  healthToTurnOn: 4
   currentHealth: 0
   endGameSprite: {fileID: 21300000, guid: 767efeac0c4030b4abf0559af5a1297d, type: 3}
   eventUtilsPrefab: {fileID: 7033785179931230982, guid: 58fce26688b927c4cb34a300074feb8d,
@@ -173,7 +173,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9026737196460166753}
   - component: {fileID: 9026737196460166754}
-  - component: {fileID: 9026737196460166783}
   m_Layer: 0
   m_Name: Panel
   m_TagString: Panel
@@ -188,9 +187,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9026737196460166752}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 8.24, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.9952, y: 1.9952, z: 1.9952}
   m_Children:
   - {fileID: 3437075538031852816}
   m_Father: {fileID: 0}
@@ -246,16 +245,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &9026737196460166783
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9026737196460166752}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.671875, y: 2.9179688, z: 5}
-  m_Center: {x: 0, y: 0, z: 0}
