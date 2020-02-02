@@ -8,6 +8,16 @@ public class Panel : MonoBehaviour
 	private AudioSource _source;
 
 	[SerializeField]
+	private GameObject EndGameRef;
+
+	[SerializeField]
+	private GameObject DisablePlayersObject;
+
+
+	[SerializeField]
+	private EndGame EndGameObject;
+
+	[SerializeField]
 	private List<AudioClip> turningOnClips;
 
 	[SerializeField]
@@ -41,6 +51,11 @@ public class Panel : MonoBehaviour
 		{
 			eventForwarder = eventUtilsPrefab.GetComponent<UIEventForwarder>();
 		}
+
+		if(EndGameRef)
+		{
+			EndGameObject = EndGameRef.GetComponent<EndGame>();
+		}
 	}
 
 	private void Update()
@@ -59,8 +74,10 @@ public class Panel : MonoBehaviour
 			//	- Music?
 			if (eventForwarder != null)
 			{
-				eventForwarder.EnqueueEvent(new UIEventArgsBase(typeof(FadeInEndGameUI), this.GetType()));
-				eventForwarder.EnqueueEvent(new UIEventArgsBase(typeof(DeactivatePlayers), this.GetType()));
+				//eventForwarder.EnqueueEvent(new UIEventArgsBase(typeof(EndGame), this.GetType()));
+				//eventForwarder.EnqueueEvent(new UIEventArgsBase(typeof(DeactivatePlayers), this.GetType()));
+
+				EndGameObject.StartEnd();
 			}
 		}
 	}
