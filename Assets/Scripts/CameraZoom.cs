@@ -12,7 +12,11 @@ public class CameraZoom : MonoBehaviour
     private float _minBoundary = 0.4f;
     private float _cameraSpeedOuter = 0.2f;
     private float _cameraSpeedOut = 0.1f;
+
+	[SerializeField]
     private float _cameraSpeedIn = 0.2f;
+
+	[SerializeField]
     private float _maxDistance = 15f;
 
     private bool _allowZoom = false;

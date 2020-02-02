@@ -8,7 +8,10 @@ public class PlayerSounds : MonoBehaviour
 {
     private AudioSource _source;
 
-    public void Awake()
+	// private List<AudioClip> cheerfulClips;
+	// private List<AudioClip> sadClips;
+
+	public void Awake()
     {
         _source = GetComponent<AudioSource>();
     }
@@ -17,6 +20,8 @@ public class PlayerSounds : MonoBehaviour
     {
         if (other.collider.CompareTag("Player")) {
             _source.Play();
+
+			// FIXME: LH: change to playOneShot( random selection from either list )
         }
     }
 }
