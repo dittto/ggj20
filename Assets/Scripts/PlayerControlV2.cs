@@ -21,6 +21,8 @@ public class PlayerControlV2 : MonoBehaviour
     public float _moveSpeed;
     public KeyCode _keyCode;
 
+    public Animator _playerAnimator;
+
     public void Awake()
     {
         _isActiveFlag = Animator.StringToHash("isActive");
@@ -76,12 +78,14 @@ public class PlayerControlV2 : MonoBehaviour
 				0
             )
         );
+        
+        _playerAnimator.SetTrigger("Thrust");
     }
 
     private void SetPower()
     {   
         if (_power < 100) {
-            _power += 1f;
+            _power += 5f;
         }
 
         if (_power > 100) {
