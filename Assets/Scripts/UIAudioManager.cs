@@ -25,7 +25,13 @@ public class UIAudioManager : MonoBehaviour, IPlayAudio
     [SerializeField]
     private String mixerTrackName;
 
-    private IEnumerator StartFade(AudioMixer audioMixer, string exposedParam, float duration, float targetVolume)
+	[SerializeField]
+	private AudioClip explorationClip;
+
+	[SerializeField]
+	private AudioClip outroClip;
+
+	private IEnumerator StartFade(AudioMixer audioMixer, string exposedParam, float duration, float targetVolume)
     {
         float currentTime = 0;
 
@@ -44,8 +50,22 @@ public class UIAudioManager : MonoBehaviour, IPlayAudio
         }
         yield break;
     }
-     
-    private void Start()
+
+	private IEnumerator StartBasicFade(AudioSource audioSource, float duration, float targetVolume)
+	{
+		float currentTime = 0;
+		float start = audioSource.volume;
+
+		while (currentTime < duration)
+		{
+			currentTime += Time.deltaTime;
+			audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+			yield return null;
+		}
+		yield break;
+	}
+
+	private void Start()
     {
         audioSource = GetComponent<AudioSource>();
 
@@ -72,15 +92,28 @@ public class UIAudioManager : MonoBehaviour, IPlayAudio
                             PlayAudio(audioArgs.clip);
                             break;
 
-                        case AUDIO_EVENT_TYPE.FADE_IN_AUDIO:
+						case AUDIO_EVENT_TYPE.FADE_IN_AUDIO:
                             StartCoroutine(StartFade(audioMixer, mixerTrackName, musicFadeInDuration, 1));
                             break;
 
                         case AUDIO_EVENT_TYPE.FADE_OUT_AUDIO:
-                            StartCoroutine(StartFade(audioMixer, mixerTrackName, musicFadeOutDuration, 0));
-                            break;
+							StartCoroutine(StartFade(audioMixer, mixerTrackName, musicFadeOutDuration, -1));
+							//StartCoroutine(StartBasicFade(audioSource, musicFadeOutDuration, -80));
+							break;
 
-                        default:
+						case AUDIO_EVENT_TYPE.FADE_IN_EXPLORATION_AUDIO:
+							//StartCoroutine(StartFade(audioMixer, mixerTrackName, musicFadeOutDuration, -1));
+							StartCoroutine(StartFade(audioMixer, mixerTrackName, musicFadeInDuration, 1));
+							PlayAudio(explorationClip);
+							break;
+
+						case AUDIO_EVENT_TYPE.FADE_IN_OUTRO_AUDIO:
+							//StartCoroutine(StartFade(audioMixer, mixerTrackName, musicFadeOutDuration, -1));
+							StartCoroutine(StartFade(audioMixer, mixerTrackName, musicFadeInDuration, 1));
+							PlayAudio(outroClip);
+							break;
+
+						default:
                             break;
                     }
 

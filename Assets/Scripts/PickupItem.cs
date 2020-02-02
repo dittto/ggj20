@@ -14,6 +14,9 @@ public class PickupItem : MonoBehaviour
 	[SerializeField]
 	private List<AudioClip> successClips;
 
+	[SerializeField]
+	private List<AudioClip> pickupClips;
+
 	private AudioSource source;
 
 	public void Start()
@@ -48,6 +51,13 @@ public class PickupItem : MonoBehaviour
 				System.Random rng = new System.Random();
 				int clipIndex = rng.Next(0, successClips.Count - 1);
 				source.PlayOneShot(successClips[clipIndex]);
+			}
+
+			if (pickupClips.Count > 0)
+			{
+				System.Random rng = new System.Random();
+				int clipIndex = rng.Next(0, pickupClips.Count - 1);
+				source.PlayOneShot(pickupClips[clipIndex]);
 			}
 		}
 		else if( other.CompareTag("Panel"))

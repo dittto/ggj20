@@ -16,6 +16,12 @@ public class PlayerSounds : MonoBehaviour
 	[SerializeField]
 	private List<AudioClip> sadClips;
 
+	[SerializeField]
+	private List<AudioClip> interpersonCollisionClips;
+
+	[SerializeField]
+	private List<AudioClip> environmentCollisionClips;
+
 	public void Awake()
     {
         _source = GetComponent<AudioSource>();
@@ -25,12 +31,15 @@ public class PlayerSounds : MonoBehaviour
     {
         if (other.collider.CompareTag("Player"))
 		{
-			if( sadClips.Count > 0)
+			if( sadClips.Count > 0 && interpersonCollisionClips.Count > 0 )
 			{
 				System.Random rng = new System.Random();
 				int clipIndex = rng.Next(0, sadClips.Count - 1);
 				_source.PlayOneShot(sadClips[clipIndex]);
-        
+
+				int clipIndex2 = rng.Next(0, interpersonCollisionClips.Count - 1);
+				_source.PlayOneShot(interpersonCollisionClips[clipIndex2]);
+
 				_playerAnimator.SetTrigger("Terrified");
 			}
 		}
@@ -54,8 +63,11 @@ public class PlayerSounds : MonoBehaviour
 		        System.Random rng = new System.Random();
 		        int clipIndex = rng.Next(0, sadClips.Count - 1);
 		        _source.PlayOneShot(sadClips[clipIndex]);
-        
-		        _playerAnimator.SetTrigger("Terrified");
+
+				int clipIndex2 = rng.Next(0, environmentCollisionClips.Count - 1);
+				_source.PlayOneShot(environmentCollisionClips[clipIndex2]);
+
+				_playerAnimator.SetTrigger("Terrified");
 	        }
         }
     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9921,7 +9921,7 @@ PrefabInstance:
     - target: {fileID: 7033785179931231001, guid: 58fce26688b927c4cb34a300074feb8d,
         type: 3}
       propertyPath: musicFadeOutDuration
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7033785179931231001, guid: 58fce26688b927c4cb34a300074feb8d,
         type: 3}
@@ -9932,7 +9932,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
-      objectReference: {fileID: 24300002, guid: cdab01980483dba49852f1f335e8103d,
+      objectReference: {fileID: -1295528099627819637, guid: cdab01980483dba49852f1f335e8103d,
         type: 2}
     - target: {fileID: 7033785179931231004, guid: 58fce26688b927c4cb34a300074feb8d,
         type: 3}
@@ -15695,6 +15695,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tool1
       objectReference: {fileID: 0}
+    - target: {fileID: 3170879138651598762, guid: 04c30d500e227c748af6ae7012b3dc7b,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04c30d500e227c748af6ae7012b3dc7b, type: 3}
 --- !u!4 &2044581007747594838 stripped
@@ -16379,6 +16384,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1809042994}
     m_Modifications:
+    - target: {fileID: 1611389109409344819, guid: d0237335d9725a7499294de700a027a8,
+        type: 3}
+      propertyPath: excitementClips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611389109409344819, guid: d0237335d9725a7499294de700a027a8,
+        type: 3}
+      propertyPath: excitementClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 931d34e3806b6664ebdb45497ecbe08c, type: 3}
+    - target: {fileID: 1611389109409344819, guid: d0237335d9725a7499294de700a027a8,
+        type: 3}
+      propertyPath: excitementClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5acbd8421c299c346a374ecc6571bac8, type: 3}
     - target: {fileID: 9026737196460166752, guid: d0237335d9725a7499294de700a027a8,
         type: 3}
       propertyPath: m_Name
@@ -16468,6 +16488,46 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -2.4
       objectReference: {fileID: 0}
+    - target: {fileID: 4509831362395707073, guid: a5d4e6a57c413ef419c622332312faf7,
+        type: 3}
+      propertyPath: interpersonCollisionClips.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4509831362395707073, guid: a5d4e6a57c413ef419c622332312faf7,
+        type: 3}
+      propertyPath: environmentCollisionClips.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4509831362395707073, guid: a5d4e6a57c413ef419c622332312faf7,
+        type: 3}
+      propertyPath: interpersonCollisionClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: e08625f550ad9cf4ba2c04e42055c3f3, type: 3}
+    - target: {fileID: 4509831362395707073, guid: a5d4e6a57c413ef419c622332312faf7,
+        type: 3}
+      propertyPath: interpersonCollisionClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: cf610042356ca1e4f9b16edec5d23ad3, type: 3}
+    - target: {fileID: 4509831362395707073, guid: a5d4e6a57c413ef419c622332312faf7,
+        type: 3}
+      propertyPath: interpersonCollisionClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 36cf7628725fe2e4192fa18b266c420b, type: 3}
+    - target: {fileID: 4509831362395707073, guid: a5d4e6a57c413ef419c622332312faf7,
+        type: 3}
+      propertyPath: environmentCollisionClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: e9a79d157788f374b943e9cb02b24f00, type: 3}
+    - target: {fileID: 4509831362395707073, guid: a5d4e6a57c413ef419c622332312faf7,
+        type: 3}
+      propertyPath: environmentCollisionClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f2202fefbed97241a4eeee6f9c15dcb, type: 3}
+    - target: {fileID: 4509831362395707073, guid: a5d4e6a57c413ef419c622332312faf7,
+        type: 3}
+      propertyPath: environmentCollisionClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4bb6a17cc6f3adf47bee83b30c7f8210, type: 3}
     - target: {fileID: 5365803042353522261, guid: a5d4e6a57c413ef419c622332312faf7,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
@@ -16523,6 +16583,46 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.y
       value: 0.26334986
       objectReference: {fileID: 0}
+    - target: {fileID: 8048583663805248677, guid: a5d4e6a57c413ef419c622332312faf7,
+        type: 3}
+      propertyPath: interpersonCollisionClips.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048583663805248677, guid: a5d4e6a57c413ef419c622332312faf7,
+        type: 3}
+      propertyPath: environmentCollisionClips.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048583663805248677, guid: a5d4e6a57c413ef419c622332312faf7,
+        type: 3}
+      propertyPath: interpersonCollisionClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: e08625f550ad9cf4ba2c04e42055c3f3, type: 3}
+    - target: {fileID: 8048583663805248677, guid: a5d4e6a57c413ef419c622332312faf7,
+        type: 3}
+      propertyPath: interpersonCollisionClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: cf610042356ca1e4f9b16edec5d23ad3, type: 3}
+    - target: {fileID: 8048583663805248677, guid: a5d4e6a57c413ef419c622332312faf7,
+        type: 3}
+      propertyPath: interpersonCollisionClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 36cf7628725fe2e4192fa18b266c420b, type: 3}
+    - target: {fileID: 8048583663805248677, guid: a5d4e6a57c413ef419c622332312faf7,
+        type: 3}
+      propertyPath: environmentCollisionClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: e9a79d157788f374b943e9cb02b24f00, type: 3}
+    - target: {fileID: 8048583663805248677, guid: a5d4e6a57c413ef419c622332312faf7,
+        type: 3}
+      propertyPath: environmentCollisionClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f2202fefbed97241a4eeee6f9c15dcb, type: 3}
+    - target: {fileID: 8048583663805248677, guid: a5d4e6a57c413ef419c622332312faf7,
+        type: 3}
+      propertyPath: environmentCollisionClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4bb6a17cc6f3adf47bee83b30c7f8210, type: 3}
     - target: {fileID: 8563563102388358716, guid: a5d4e6a57c413ef419c622332312faf7,
         type: 3}
       propertyPath: m_Name

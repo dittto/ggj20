@@ -57,7 +57,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 6668024424468205406, guid: cdab01980483dba49852f1f335e8103d,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: ad2a092d616f4154c9080286102a1003, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ac9fbff9beeb80e44b2475463798cbcf, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -159,6 +159,9 @@ MonoBehaviour:
   parentTransform: {fileID: 0}
   successClips:
   - {fileID: 8300000, guid: 208cdda11af3f5c43935bced8635e697, type: 3}
+  pickupClips:
+  - {fileID: 8300000, guid: b389e82acd4fb8e45a8cb435a2b12f28, type: 3}
+  - {fileID: 8300000, guid: 5cb0c28c08f7a064b935e27e3c983df8, type: 3}
 --- !u!1 &8889818978162781750
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,6 +338,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ShapeModule.type
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6936649012174717769, guid: 9a2bbcd19af166b4fb0d417ba024f714,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7560423608881720740, guid: 9a2bbcd19af166b4fb0d417ba024f714,
         type: 3}

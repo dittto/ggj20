@@ -11,6 +11,9 @@ public class Panel : MonoBehaviour
 	private List<AudioClip> turningOnClips;
 
 	[SerializeField]
+	private List<AudioClip> excitementClips;
+
+	[SerializeField]
 	private int healthToTurnOn;
 
 	[SerializeField]

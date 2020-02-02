@@ -58,16 +58,27 @@ public class StartGame : MonoBehaviour
             {
 				eventForwarder.EnqueueEvent(new UIAnimationEventArgs(typeof(UIAnimationManager), this.GetType(), animator, transitionParameter));
                 eventForwarder.EnqueueEvent(new UIAudioEventArgs(typeof(UIAudioManager), this.GetType(), AUDIO_EVENT_TYPE.FADE_OUT_AUDIO, null));
-            }
+
+				StartCoroutine(StartLoopMusicAfterDelay(8));
+			}
 
             StartCoroutine(PanCameraAfterAnimationEnd(clip.length));
 			startPressed = true;
         }
+
+
     }
 
     private IEnumerator PanCameraAfterAnimationEnd(float seconds)
     {
         yield return new WaitForSeconds(seconds);
 		eventForwarder.EnqueueEvent(new UIEventArgsBase(typeof(IntroCameraPan), this.GetType()));
+	}
+
+	private IEnumerator StartLoopMusicAfterDelay(float seconds)
+	{
+		yield return new WaitForSeconds(seconds);
+		eventForwarder.EnqueueEvent(new UIAudioEventArgs(typeof(UIAudioManager), this.GetType(), AUDIO_EVENT_TYPE.FADE_OUT_AUDIO, null));
+		eventForwarder.EnqueueEvent(new UIAudioEventArgs(typeof(UIAudioManager), this.GetType(), AUDIO_EVENT_TYPE.FADE_IN_EXPLORATION_AUDIO, null));
 	}
 }
