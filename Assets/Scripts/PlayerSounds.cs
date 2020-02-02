@@ -8,8 +8,11 @@ public class PlayerSounds : MonoBehaviour
 {
     private AudioSource _source;
 
-	// private List<AudioClip> cheerfulClips;
-	// private List<AudioClip> sadClips;
+	[SerializeField]
+	private List<AudioClip> cheerfulClips;
+
+	[SerializeField]
+	private List<AudioClip> sadClips;
 
 	public void Awake()
     {
@@ -18,10 +21,25 @@ public class PlayerSounds : MonoBehaviour
 
     public void OnCollisionEnter(Collision other)
     {
-        if (other.collider.CompareTag("Player")) {
-            _source.Play();
+        if (other.collider.CompareTag("Player"))
+		{
+			if( sadClips.Count > 0)
+			{
+				System.Random rng = new System.Random();
+				int clipIndex = rng.Next(0, sadClips.Count - 1);
+				_source.PlayOneShot(sadClips[clipIndex]);
+			}
+		}
 
-			// FIXME: LH: change to playOneShot( random selection from either list )
-        }
+		else if(other.collider.CompareTag("Panel") && 
+				!GetComponentInChildren<PickupItem>())
+		{
+			if (sadClips.Count > 0)
+			{
+				System.Random rng = new System.Random();
+				int clipIndex = rng.Next(0, sadClips.Count - 1);
+				_source.PlayOneShot(sadClips[clipIndex]);
+			}
+		}
     }
 }

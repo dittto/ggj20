@@ -54,13 +54,11 @@ public class CameraZoom : MonoBehaviour
 
     private IEnumerator RemoveOverlayAndActivatePlayers(float seconds)
     {
-        _allowZoom = true;
-        
         yield return new WaitForSeconds(seconds);
+		eventForwarder.EnqueueEvent(new UIEventArgsBase(typeof(ActivatePlayers), this.GetType()));
 
-        eventForwarder.EnqueueEvent(new UIEventArgsBase(typeof(DissolveShipOverlay), this.GetType()));
-        eventForwarder.EnqueueEvent(new UIEventArgsBase(typeof(ActivatePlayers), this.GetType()));
-    }
+		_allowZoom = true;
+	}
     
     void Update()
     {
