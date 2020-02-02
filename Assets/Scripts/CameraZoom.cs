@@ -47,20 +47,18 @@ public class CameraZoom : MonoBehaviour
             Type targetType = args.target;
             if (targetType.ToString() == "IntroCameraPan")
             {
-                StartCoroutine(RemoveOverlayAndActivatePlayers(2));
+                StartCoroutine(RemoveOverlayAndActivatePlayers(1));
             }
         }
     }
 
     private IEnumerator RemoveOverlayAndActivatePlayers(float seconds)
     {
-        _allowZoom = true;
-        
         yield return new WaitForSeconds(seconds);
+		eventForwarder.EnqueueEvent(new UIEventArgsBase(typeof(ActivatePlayers), this.GetType()));
 
-        eventForwarder.EnqueueEvent(new UIEventArgsBase(typeof(DissolveShipOverlay), this.GetType()));
-        eventForwarder.EnqueueEvent(new UIEventArgsBase(typeof(ActivatePlayers), this.GetType()));
-    }
+		_allowZoom = true;
+	}
     
     void Update()
     {

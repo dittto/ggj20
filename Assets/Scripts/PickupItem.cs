@@ -11,25 +11,26 @@ public class PickupItem : MonoBehaviour
 	[SerializeField]
 	private Transform parentTransform = null;
 
+	[SerializeField]
+	private List<AudioClip> successClips;
+
+	private AudioSource source;
+
 	public void Start()
 	{
+		source = GetComponent<AudioSource>();
 		parentTransform = transform.parent.GetComponentInParent<Transform>();
 	}
 
 	public void Update()
 	{
-		// I kinda hate this but oh well
+		// FIXME: LH: I kinda hate this but oh well
 		if( pickedUp )
 		{
-			// FIXME: LH: can at least cache this
 			parentTransform.position = parentTransform.parent.position;
-				//new Vector3( parentTransform.parent.position.x,
-				//			parentTransform.parent.position.y,
-				//			0);
 		}
 	}
 
-	//public void OnCollisionEnter(Collision other)
 	public void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Player") && !pickedUp)
@@ -41,12 +42,30 @@ public class PickupItem : MonoBehaviour
 			parentTransform.SetParent(other.transform, false);
 
 			pickedUp = true;
+
+			if (successClips.Count > 0)
+			{
+				System.Random rng = new System.Random();
+				int clipIndex = rng.Next(0, successClips.Count - 1);
+				source.PlayOneShot(successClips[clipIndex]);
+			}
 		}
 		else if( other.CompareTag("Panel"))
 		{
-			transform.parent.gameObject.SetActive(false);
+			if (successClips.Count > 0)
+			{
+				System.Random rng = new System.Random();
+				int clipIndex = rng.Next(0, successClips.Count - 1);
+				source.PlayOneShot(successClips[clipIndex]);
+			}
 
-			// FIXME: LH: play celebratory gong
+			DeactivateSelfAfterDelay(2);
 		}
+	}
+
+	private IEnumerator DeactivateSelfAfterDelay(float seconds)
+	{
+		yield return new WaitForSeconds(seconds);
+		transform.parent.gameObject.SetActive(false);
 	}
 }
