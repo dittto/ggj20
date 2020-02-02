@@ -158,6 +158,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickedUp: 0
+  parentTransform: {fileID: 0}
+  successClips:
+  - {fileID: 8300000, guid: 208cdda11af3f5c43935bced8635e697, type: 3}
 --- !u!82 &3170879138651598762
 AudioSource:
   m_ObjectHideFlags: 0
