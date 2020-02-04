@@ -14,7 +14,7 @@ public class PlayerControlV2 : MonoBehaviour
     public Animator _arrowAnimator;
     public Transform _direction;
     public Transform _arrow;
-    public Rigidbody _body;
+    public Rigidbody2D _body;
     public ParticleSystem thrustParticle;
 
     public float _rotationSpeed;
@@ -32,7 +32,7 @@ public class PlayerControlV2 : MonoBehaviour
 
     public void Update()
     {
-
+        // Spin arrow.
         if (!_isButtonHeld) {
             UpdateDirection();
         }
@@ -55,6 +55,7 @@ public class PlayerControlV2 : MonoBehaviour
         }
     }
 
+    // Show spinning arrow.
     private void ShowDirection()
     {
         _directionAnimator.SetBool(_isActiveFlag, true);
@@ -62,6 +63,7 @@ public class PlayerControlV2 : MonoBehaviour
         _arrowAnimator.SetBool(_isActiveFlag, true);
     }
 
+    // Spin arrow.
     private void UpdateDirection()
     {
         _direction.eulerAngles = _direction.eulerAngles + new Vector3(0, 0, _rotationSpeed * -1);
@@ -96,7 +98,7 @@ public class PlayerControlV2 : MonoBehaviour
     private void UpdateArrow()
     {
         var arrowMin = 1f;
-        var arrowMax = 3f;
+        var arrowMax = 2f;
 
         _arrow.localPosition = new Vector3(((arrowMax - arrowMin) * (_power / 100f)) + arrowMin, _arrow.localPosition.y, _arrow.localPosition.z);
     }
