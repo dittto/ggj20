@@ -34,10 +34,11 @@ public class UIEventArgsBase : EventArgs
 public enum AUDIO_EVENT_TYPE
 {
     PLAY_AUDIO = 0,
-    FADE_IN_AUDIO = 1,
-    FADE_OUT_AUDIO = 2,
-	FADE_IN_EXPLORATION_AUDIO = 3,
-	FADE_IN_OUTRO_AUDIO = 4
+	STOP_AUDIO = 1,
+	ENABLE_AUDIO_LOOPING = 2,
+	DISABLE_AUDIO_LOOPING = 3,
+	FADE_IN_AUDIO = 4,
+    FADE_OUT_AUDIO = 5
 }
 
 /// <summary>

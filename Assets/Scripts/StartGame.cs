@@ -29,6 +29,9 @@ public class StartGame : MonoBehaviour
     private AudioClip startMenuMusic;
 
 	[SerializeField]
+	private AudioClip explorationMusic;
+
+	[SerializeField]
 	private bool startPressed = false;
 
     private void Start()
@@ -78,7 +81,9 @@ public class StartGame : MonoBehaviour
 	private IEnumerator StartLoopMusicAfterDelay(float seconds)
 	{
 		yield return new WaitForSeconds(seconds);
-		eventForwarder.EnqueueEvent(new UIAudioEventArgs(typeof(UIAudioManager), this.GetType(), AUDIO_EVENT_TYPE.FADE_OUT_AUDIO, null));
-		eventForwarder.EnqueueEvent(new UIAudioEventArgs(typeof(UIAudioManager), this.GetType(), AUDIO_EVENT_TYPE.FADE_IN_EXPLORATION_AUDIO, null));
+		eventForwarder.EnqueueEvent(new UIAudioEventArgs(typeof(UIAudioManager), this.GetType(), AUDIO_EVENT_TYPE.STOP_AUDIO, null));
+		eventForwarder.EnqueueEvent(new UIAudioEventArgs(typeof(UIAudioManager), this.GetType(), AUDIO_EVENT_TYPE.FADE_IN_AUDIO, null));
+		eventForwarder.EnqueueEvent(new UIAudioEventArgs(typeof(UIAudioManager), this.GetType(), AUDIO_EVENT_TYPE.PLAY_AUDIO, explorationMusic));
+		eventForwarder.EnqueueEvent(new UIAudioEventArgs(typeof(UIAudioManager), this.GetType(), AUDIO_EVENT_TYPE.ENABLE_AUDIO_LOOPING, null));
 	}
 }

@@ -15,12 +15,6 @@ public class UIAudioManager : MonoBehaviour, IPlayAudio
     [SerializeField]
     private AudioMixer audioMixer;
 
-	[SerializeField]
-	private AudioSource endingMusicSource;
-
-	[SerializeField]
-	private AudioMixer endingMusicMixer;
-
 	// Fade parameters
 	[SerializeField]
     private float musicFadeInDuration;
@@ -30,12 +24,6 @@ public class UIAudioManager : MonoBehaviour, IPlayAudio
 
     [SerializeField]
     private String mixerTrackName;
-
-	[SerializeField]
-	private AudioClip explorationClip;
-
-	[SerializeField]
-	private AudioClip outroClip;
 
 	private IEnumerator StartFade(AudioMixer audioMixer, string exposedParam, float duration, float targetVolume)
     {
@@ -56,20 +44,6 @@ public class UIAudioManager : MonoBehaviour, IPlayAudio
         }
         yield break;
     }
-
-	private IEnumerator StartBasicFade(AudioSource audioSource, float duration, float targetVolume)
-	{
-		float currentTime = 0;
-		float start = audioSource.volume;
-
-		while (currentTime < duration)
-		{
-			currentTime += Time.deltaTime;
-			audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
-			yield return null;
-		}
-		yield break;
-	}
 
 	private void Start()
     {
@@ -98,25 +72,24 @@ public class UIAudioManager : MonoBehaviour, IPlayAudio
                             PlayAudio(audioArgs.clip);
                             break;
 
+						case AUDIO_EVENT_TYPE.STOP_AUDIO:
+							audioSource.Stop();
+							break;
+
+						case AUDIO_EVENT_TYPE.ENABLE_AUDIO_LOOPING:
+							audioSource.loop = true;
+							break;
+
+						case AUDIO_EVENT_TYPE.DISABLE_AUDIO_LOOPING:
+							audioSource.loop = false;
+							break;
+
 						case AUDIO_EVENT_TYPE.FADE_IN_AUDIO:
                             StartCoroutine(StartFade(audioMixer, mixerTrackName, musicFadeInDuration, 1));
                             break;
 
                         case AUDIO_EVENT_TYPE.FADE_OUT_AUDIO:
-							StartCoroutine(StartFade(audioMixer, mixerTrackName, musicFadeOutDuration, -1));
-							//StartCoroutine(StartBasicFade(audioSource, musicFadeOutDuration, -80));
-							break;
-
-						case AUDIO_EVENT_TYPE.FADE_IN_EXPLORATION_AUDIO:
-							StartCoroutine(StartFade(audioMixer, mixerTrackName, musicFadeInDuration, 1));
-							PlayAudio(explorationClip);
-							break;
-
-						case AUDIO_EVENT_TYPE.FADE_IN_OUTRO_AUDIO:
-							StartCoroutine(StartFade(audioMixer, mixerTrackName, musicFadeInDuration, 1));
-							//PlayAudio(outroClip);
-
-							endingMusicSource.PlayOneShot(outroClip);
+							StartCoroutine(StartFade(audioMixer, mixerTrackName, musicFadeOutDuration, 0));
 							break;
 
 						default:

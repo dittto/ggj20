@@ -24,6 +24,9 @@ public class EndGame : MonoBehaviour
 	[SerializeField]
 	private Animator animator;
 
+	[SerializeField]
+	private AudioClip endMusic;
+
 	void Start()
 	{
 		if (eventUtilsPrefab)
@@ -52,6 +55,18 @@ public class EndGame : MonoBehaviour
 
 	public void StartEnd()
 	{
+		//EndGameCanvas.SetActive(true);
+		StartCoroutine(StartEndingAfterDelay(1));
+	}
+
+	private IEnumerator StartEndingAfterDelay(float seconds)
+	{
+		yield return new WaitForSeconds(seconds);
+
+		// FIXME: start animation sequence here
 		EndGameCanvas.SetActive(true);
+		eventForwarder.EnqueueEvent(new UIAudioEventArgs(typeof(UIAudioManager), this.GetType(), AUDIO_EVENT_TYPE.STOP_AUDIO, null));
+		eventForwarder.EnqueueEvent(new UIAudioEventArgs(typeof(UIAudioManager), this.GetType(), AUDIO_EVENT_TYPE.FADE_IN_AUDIO, null));
+		eventForwarder.EnqueueEvent(new UIAudioEventArgs(typeof(UIAudioManager), this.GetType(), AUDIO_EVENT_TYPE.PLAY_AUDIO, endMusic));
 	}
 }
