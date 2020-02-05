@@ -15,8 +15,14 @@ public class UIAudioManager : MonoBehaviour, IPlayAudio
     [SerializeField]
     private AudioMixer audioMixer;
 
-    // Fade parameters
-    [SerializeField]
+	[SerializeField]
+	private AudioSource endingMusicSource;
+
+	[SerializeField]
+	private AudioMixer endingMusicMixer;
+
+	// Fade parameters
+	[SerializeField]
     private float musicFadeInDuration;
 
     [SerializeField]
@@ -102,15 +108,15 @@ public class UIAudioManager : MonoBehaviour, IPlayAudio
 							break;
 
 						case AUDIO_EVENT_TYPE.FADE_IN_EXPLORATION_AUDIO:
-							//StartCoroutine(StartFade(audioMixer, mixerTrackName, musicFadeOutDuration, -1));
 							StartCoroutine(StartFade(audioMixer, mixerTrackName, musicFadeInDuration, 1));
 							PlayAudio(explorationClip);
 							break;
 
 						case AUDIO_EVENT_TYPE.FADE_IN_OUTRO_AUDIO:
-							//StartCoroutine(StartFade(audioMixer, mixerTrackName, musicFadeOutDuration, -1));
 							StartCoroutine(StartFade(audioMixer, mixerTrackName, musicFadeInDuration, 1));
-							PlayAudio(outroClip);
+							//PlayAudio(outroClip);
+
+							endingMusicSource.PlayOneShot(outroClip);
 							break;
 
 						default:

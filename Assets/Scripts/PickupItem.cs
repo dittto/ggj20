@@ -69,7 +69,7 @@ public class PickupItem : MonoBehaviour
 				source.PlayOneShot(successClips[clipIndex]);
 			}
 
-			DeactivateSelfAfterDelay(1);
+			StartCoroutine( DeactivateSelfAfterDelay( 1 ) );
 		}
 	}
 
