@@ -50,7 +50,7 @@ public class PickupItem : MonoBehaviour
 			{
 				System.Random rng = new System.Random();
 				int clipIndex = rng.Next(0, successClips.Count - 1);
-				source.PlayOneShot(successClips[clipIndex]);
+				source.PlayOneShot(successClips[clipIndex]); // FIXME: LH: this thwos and exception- source is disabled apparently
 			}
 
 			if (pickupClips.Count > 0)
