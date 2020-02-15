@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class Panel : MonoBehaviour
 {
+    private bool gameEnded = false;
 	private AudioSource _source;
 
 	[SerializeField]
@@ -60,7 +61,7 @@ public class Panel : MonoBehaviour
 
 	private void Update()
 	{
-		if(currentHealth >= healthToTurnOn)
+		if(currentHealth >= healthToTurnOn && !gameEnded)
 		{
 			// Change sprite
 			if ( endGameSprite )
@@ -68,22 +69,23 @@ public class Panel : MonoBehaviour
 				GetComponentInParent<SpriteRenderer>().sprite = endGameSprite;
 			}
 
-			// End game
-			//	- Deactivate players
-			//	- Play UIAnimation
-			//	- Music?
-			if (eventForwarder != null)
+            EndGameObject.StartEnd();
+            gameEnded = true;
+
+            // End game
+            //	- Deactivate players
+            //	- Play UIAnimation
+            //	- Music?
+            if (eventForwarder != null)
 			{
 				//eventForwarder.EnqueueEvent(new UIEventArgsBase(typeof(EndGame), this.GetType()));
 				//eventForwarder.EnqueueEvent(new UIEventArgsBase(typeof(DeactivatePlayers), this.GetType()));
-
-				EndGameObject.StartEnd();
 			}
 		}
 	}
 
 	//public void OnCollisionEnter(Collision other)
-	public void OnTriggerEnter(Collider other)
+	public void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.CompareTag("Tool"))
 		{
@@ -95,6 +97,7 @@ public class Panel : MonoBehaviour
 			}
 
 			currentHealth++;
+            Destroy(other.gameObject);
 		}
 	}
 }

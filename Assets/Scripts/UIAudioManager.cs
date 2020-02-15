@@ -72,10 +72,6 @@ public class UIAudioManager : MonoBehaviour, IPlayAudio
         UIEventForwarder.OnForwardedEvent += ForwardedEventHandler;
     }
 
-    private void Update()
-    {
-    }
-
     private void ForwardedEventHandler( UIEventArgsBase args )
     {
         if ( args != null )

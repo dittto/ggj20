@@ -28,10 +28,6 @@ public class DeactivatePlayers : MonoBehaviour
 		}
 	}
 
-	void Update()
-	{
-	}
-
 	private void DeactivatePlayersEventHandler(UIEventArgsBase args)
 	{
 		if (args != null)

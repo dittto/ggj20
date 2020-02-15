@@ -38,11 +38,13 @@ public class StartGame : MonoBehaviour
             eventForwarder = eventUtilsPrefab.GetComponent<UIEventForwarder>();
         }
 
-        if( eventForwarder )
-        {
-            eventForwarder.EnqueueEvent(new UIAudioEventArgs(typeof(UIAudioManager), this.GetType(), AUDIO_EVENT_TYPE.FADE_IN_AUDIO, null));
-            eventForwarder.EnqueueEvent(new UIAudioEventArgs(typeof(UIAudioManager), this.GetType(), AUDIO_EVENT_TYPE.PLAY_AUDIO, startMenuMusic));
-        }
+        FindObjectOfType<AudioManager>().Play("Menu");
+
+        //if( eventForwarder )
+        //{
+        //    eventForwarder.EnqueueEvent(new UIAudioEventArgs(typeof(UIAudioManager), this.GetType(), AUDIO_EVENT_TYPE.FADE_IN_AUDIO, null));
+        //    eventForwarder.EnqueueEvent(new UIAudioEventArgs(typeof(UIAudioManager), this.GetType(), AUDIO_EVENT_TYPE.PLAY_AUDIO, startMenuMusic));
+        //}
 
 		animator = GetComponent<Animator>();
 
@@ -54,19 +56,18 @@ public class StartGame : MonoBehaviour
         if (Input.anyKey && !startPressed)
         {
             // FIXME: LH: find way to stop clip from playing when this is done; Non-essential, as atm the scene ending stops it
-            if( eventForwarder != null && animator)
+            if (eventForwarder != null && animator)
             {
-				eventForwarder.EnqueueEvent(new UIAnimationEventArgs(typeof(UIAnimationManager), this.GetType(), animator, transitionParameter));
-                eventForwarder.EnqueueEvent(new UIAudioEventArgs(typeof(UIAudioManager), this.GetType(), AUDIO_EVENT_TYPE.FADE_OUT_AUDIO, null));
+                eventForwarder.EnqueueEvent(new UIAnimationEventArgs(typeof(UIAnimationManager), this.GetType(), animator, transitionParameter));
+                // eventForwarder.EnqueueEvent(new UIAudioEventArgs(typeof(UIAudioManager), this.GetType(), AUDIO_EVENT_TYPE.FADE_OUT_AUDIO, null));
 
-				StartCoroutine(StartLoopMusicAfterDelay(8));
-			}
+                // StartCoroutine(StartLoopMusicAfterDelay(8));
+            }
 
             StartCoroutine(PanCameraAfterAnimationEnd(clip.length));
 			startPressed = true;
+            FindObjectOfType<AudioManager>().Play("Exploration");
         }
-
-
     }
 
     private IEnumerator PanCameraAfterAnimationEnd(float seconds)

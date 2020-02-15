@@ -9,9 +9,6 @@ public class PickupItem : MonoBehaviour
 	private bool pickedUp = false;
 
 	[SerializeField]
-	private Transform parentTransform = null;
-
-	[SerializeField]
 	private List<AudioClip> successClips;
 
 	[SerializeField]
@@ -22,60 +19,33 @@ public class PickupItem : MonoBehaviour
 	public void Start()
 	{
 		source = GetComponent<AudioSource>();
-		parentTransform = transform.parent.GetComponentInParent<Transform>();
 	}
 
-	public void Update()
-	{
-		// FIXME: LH: I kinda hate this but oh well
-		if( pickedUp )
-		{
-			parentTransform.position = parentTransform.parent.position;
-		}
-	}
-
-	public void OnTriggerEnter(Collider other)
+	public void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.CompareTag("Player") && !pickedUp)
 		{
-			// stop pickup sound playing
-			GetComponent<AudioSource>().Stop();
-
+            // stop pickup sound playing
+            source.Stop();
+            source.volume = 1;
 			// reparent to other.collider.transform?
-			parentTransform.SetParent(other.transform, false);
+			transform.SetParent(other.transform, false);
+            transform.localPosition = new Vector3(0, 0, 0);
 
 			pickedUp = true;
-
-			if (successClips.Count > 0)
-			{
-				System.Random rng = new System.Random();
-				int clipIndex = rng.Next(0, successClips.Count - 1);
-				source.PlayOneShot(successClips[clipIndex]);
-			}
 
 			if (pickupClips.Count > 0)
 			{
 				System.Random rng = new System.Random();
 				int clipIndex = rng.Next(0, pickupClips.Count - 1);
-				source.PlayOneShot(pickupClips[clipIndex]);
+				source.PlayOneShot(pickupClips[clipIndex], 1f);
 			}
-		}
-		else if( other.CompareTag("Panel"))
-		{
-			if (successClips.Count > 0)
-			{
-				System.Random rng = new System.Random();
-				int clipIndex = rng.Next(0, successClips.Count - 1);
-				source.PlayOneShot(successClips[clipIndex]);
-			}
-
-			DeactivateSelfAfterDelay(1);
 		}
 	}
 
-	private IEnumerator DeactivateSelfAfterDelay(float seconds)
-	{
-		yield return new WaitForSeconds(seconds);
-		transform.parent.gameObject.SetActive(false);
-	}
+	//private IEnumerator DeactivateSelfAfterDelay(float seconds)
+	//{
+	//	yield return new WaitForSeconds(seconds);
+	//	transform.parent.gameObject.SetActive(false);
+	//}
 }
