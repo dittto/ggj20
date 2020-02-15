@@ -36,40 +36,43 @@ public class PickupItem : MonoBehaviour
 
 	public void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("Player") && !pickedUp)
+		if ( gameObject.activeSelf )
 		{
-			// stop pickup sound playing
-			GetComponent<AudioSource>().Stop();
-
-			// reparent to other.collider.transform?
-			parentTransform.SetParent(other.transform, false);
-
-			pickedUp = true;
-
-			if (successClips.Count > 0)
+			if (other.CompareTag("Player") && !pickedUp)
 			{
-				System.Random rng = new System.Random();
-				int clipIndex = rng.Next(0, successClips.Count - 1);
-				source.PlayOneShot(successClips[clipIndex]); // FIXME: LH: this thwos and exception- source is disabled apparently
-			}
+				// stop pickup sound playing
+				GetComponent<AudioSource>().Stop();
 
-			if (pickupClips.Count > 0)
-			{
-				System.Random rng = new System.Random();
-				int clipIndex = rng.Next(0, pickupClips.Count - 1);
-				source.PlayOneShot(pickupClips[clipIndex]);
-			}
-		}
-		else if( other.CompareTag("Panel"))
-		{
-			if (successClips.Count > 0)
-			{
-				System.Random rng = new System.Random();
-				int clipIndex = rng.Next(0, successClips.Count - 1);
-				source.PlayOneShot(successClips[clipIndex]);
-			}
+				// reparent to other.collider.transform?
+				parentTransform.SetParent(other.transform, false);
 
-			StartCoroutine( DeactivateSelfAfterDelay( 1 ) );
+				pickedUp = true;
+
+				if (successClips.Count > 0)
+				{
+					System.Random rng = new System.Random();
+					int clipIndex = rng.Next(0, successClips.Count - 1);
+					source.PlayOneShot(successClips[clipIndex]); // FIXME: LH: this throws an exception- source is disabled apparently
+				}
+
+				if (pickupClips.Count > 0)
+				{
+					System.Random rng = new System.Random();
+					int clipIndex = rng.Next(0, pickupClips.Count - 1);
+					source.PlayOneShot(pickupClips[clipIndex]);
+				}
+			}
+			else if( other.CompareTag("Panel"))
+			{
+				if (successClips.Count > 0)
+				{
+					System.Random rng = new System.Random();
+					int clipIndex = rng.Next(0, successClips.Count - 1);
+					source.PlayOneShot(successClips[clipIndex]);
+				}
+
+				StartCoroutine( DeactivateSelfAfterDelay( 1 ) );
+			}
 		}
 	}
 

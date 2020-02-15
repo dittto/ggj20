@@ -125,8 +125,8 @@ HingeJoint:
   m_UseLimits: 0
   m_Limits:
     min: 0
-    max: 0
-    bounciness: 0.5
+    max: 0.2
+    bounciness: 0.3
     bounceMinVelocity: 0.2
     contactDistance: 0
   m_BreakForce: Infinity
