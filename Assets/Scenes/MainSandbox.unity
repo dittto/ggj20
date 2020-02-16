@@ -11264,6 +11264,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24100000, guid: cdab01980483dba49852f1f335e8103d,
         type: 2}
+    - target: {fileID: 7033785179931231001, guid: 58fce26688b927c4cb34a300074feb8d,
+        type: 3}
+      propertyPath: mixerUpperLimit
+      value: -6
+      objectReference: {fileID: 0}
     - target: {fileID: 7033785179931231002, guid: 58fce26688b927c4cb34a300074feb8d,
         type: 3}
       propertyPath: OutputAudioMixerGroup
@@ -17840,12 +17845,12 @@ PrefabInstance:
     - target: {fileID: 2792769841568241963, guid: 264651364deb46346a442cb8ae9d150a,
         type: 3}
       propertyPath: MaxDistance
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2792769841568241963, guid: 264651364deb46346a442cb8ae9d150a,
         type: 3}
       propertyPath: DopplerLevel
-      value: 0.32
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2792769841568241963, guid: 264651364deb46346a442cb8ae9d150a,
         type: 3}
@@ -17856,11 +17861,16 @@ PrefabInstance:
     - target: {fileID: 2792769841568241963, guid: 264651364deb46346a442cb8ae9d150a,
         type: 3}
       propertyPath: MinDistance
-      value: 0.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2792769841568241963, guid: 264651364deb46346a442cb8ae9d150a,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2792769841568241963, guid: 264651364deb46346a442cb8ae9d150a,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -18000,12 +18010,12 @@ PrefabInstance:
     - target: {fileID: 3170879138651598762, guid: 04c30d500e227c748af6ae7012b3dc7b,
         type: 3}
       propertyPath: m_Volume
-      value: 0.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3170879138651598762, guid: 04c30d500e227c748af6ae7012b3dc7b,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3170879138651598762, guid: 04c30d500e227c748af6ae7012b3dc7b,
         type: 3}
@@ -18013,6 +18023,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 644543748284706791, guid: cdab01980483dba49852f1f335e8103d,
         type: 2}
+    - target: {fileID: 3170879138651598762, guid: 04c30d500e227c748af6ae7012b3dc7b,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170879138651598762, guid: 04c30d500e227c748af6ae7012b3dc7b,
+        type: 3}
+      propertyPath: DopplerLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170879138651598762, guid: 04c30d500e227c748af6ae7012b3dc7b,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170879138651598762, guid: 04c30d500e227c748af6ae7012b3dc7b,
+        type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170879138651598762, guid: 04c30d500e227c748af6ae7012b3dc7b,
+        type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3170879138651598762, guid: 04c30d500e227c748af6ae7012b3dc7b,
+        type: 3}
+      propertyPath: MinDistance
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04c30d500e227c748af6ae7012b3dc7b, type: 3}
 --- !u!114 &1830066151276506423
@@ -18345,7 +18385,7 @@ PrefabInstance:
     - target: {fileID: 3249101325455757759, guid: e1b6687af93f6464fa6b9d2deaf62dfa,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3249101325455757759, guid: e1b6687af93f6464fa6b9d2deaf62dfa,
         type: 3}
@@ -18353,6 +18393,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 644543748284706791, guid: cdab01980483dba49852f1f335e8103d,
         type: 2}
+    - target: {fileID: 3249101325455757759, guid: e1b6687af93f6464fa6b9d2deaf62dfa,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249101325455757759, guid: e1b6687af93f6464fa6b9d2deaf62dfa,
+        type: 3}
+      propertyPath: DopplerLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249101325455757759, guid: e1b6687af93f6464fa6b9d2deaf62dfa,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249101325455757759, guid: e1b6687af93f6464fa6b9d2deaf62dfa,
+        type: 3}
+      propertyPath: MinDistance
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1b6687af93f6464fa6b9d2deaf62dfa, type: 3}
 --- !u!1001 &4189200944970413853
@@ -18733,12 +18793,12 @@ PrefabInstance:
     - target: {fileID: 1976801067202746806, guid: 28b5e06001eb6cf448ca00c1af9a3f5b,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1976801067202746806, guid: 28b5e06001eb6cf448ca00c1af9a3f5b,
         type: 3}
       propertyPath: MaxDistance
-      value: 3
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1976801067202746806, guid: 28b5e06001eb6cf448ca00c1af9a3f5b,
         type: 3}
@@ -18746,6 +18806,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 644543748284706791, guid: cdab01980483dba49852f1f335e8103d,
         type: 2}
+    - target: {fileID: 1976801067202746806, guid: 28b5e06001eb6cf448ca00c1af9a3f5b,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976801067202746806, guid: 28b5e06001eb6cf448ca00c1af9a3f5b,
+        type: 3}
+      propertyPath: DopplerLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976801067202746806, guid: 28b5e06001eb6cf448ca00c1af9a3f5b,
+        type: 3}
+      propertyPath: MinDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8889818978162781750, guid: 28b5e06001eb6cf448ca00c1af9a3f5b,
         type: 3}
       propertyPath: m_Name

@@ -15,6 +15,9 @@ public class UIAudioManager : MonoBehaviour, IPlayAudio
     [SerializeField]
     private AudioMixer audioMixer;
 
+	[SerializeField]
+	private float mixerUpperLimit;
+
 	// Fade parameters
 	[SerializeField]
     private float musicFadeInDuration;
@@ -39,7 +42,7 @@ public class UIAudioManager : MonoBehaviour, IPlayAudio
         {
             currentTime += Time.deltaTime;
             float newVol = Mathf.Lerp(currentVol, targetValue, currentTime / duration);
-            audioMixer.SetFloat(exposedParam, Mathf.Log10(newVol) * 20);
+            audioMixer.SetFloat(exposedParam, Mathf.Log10(newVol) * 20 - mixerUpperLimit);
             yield return null;
         }
         yield break;
