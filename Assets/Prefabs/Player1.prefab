@@ -247,7 +247,6 @@ GameObject:
   - component: {fileID: 6113253170358176308}
   - component: {fileID: 116262338373674857}
   - component: {fileID: 5757241040906726872}
-  - component: {fileID: 4029778016986138675}
   - component: {fileID: 76344724855400657}
   - component: {fileID: 1830066150576840704}
   - component: {fileID: 9168254031580131334}
@@ -321,7 +320,7 @@ SpriteRenderer:
   m_Size: {x: 1.1171875, y: 1.3125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &6113253170358176308
@@ -377,29 +376,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 56
   m_CollisionDetection: 0
---- !u!145 &4029778016986138675
-SpringJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7342297528188904872}
-  m_ConnectedBody: {fileID: 0}
-  m_Anchor: {x: 0, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
-  serializedVersion: 2
-  m_Spring: 10
-  m_Damper: 0.2
-  m_MinDistance: 0
-  m_MaxDistance: 0
-  m_Tolerance: 0.025
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
 --- !u!82 &76344724855400657
 AudioSource:
   m_ObjectHideFlags: 0
@@ -522,6 +498,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 81c64ca6284931947a0d70caa7cc357d, type: 3}
   - {fileID: 8300000, guid: b50d40705bb77d149a2b9be2e75cc3d3, type: 3}
   - {fileID: 8300000, guid: fe3e329b62fa1054289d52511bcb54e4, type: 3}
+  interpersonCollisionClips: []
+  environmentCollisionClips: []
 --- !u!95 &9168254031580131334
 Animator:
   serializedVersion: 3

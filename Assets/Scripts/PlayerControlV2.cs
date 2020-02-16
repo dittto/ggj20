@@ -28,6 +28,8 @@ public class PlayerControlV2 : MonoBehaviour
         _isActiveFlag = Animator.StringToHash("isActive");
         
         ShowDirection();
+
+		_body = GetComponent<Rigidbody>();
     }
 
     public void Update()
@@ -70,16 +72,22 @@ public class PlayerControlV2 : MonoBehaviour
     private void MovePlayer()
     {
         var power = _power * _moveSpeed;
-        
-        _body.AddForce(
-            new Vector3(
-                Mathf.Cos(Mathf.Deg2Rad * _direction.eulerAngles.z) * power, 
-                Mathf.Sin(Mathf.Deg2Rad * _direction.eulerAngles.z) * power,
+
+		Vector3 newForce = new Vector3(
+				Mathf.Cos(Mathf.Deg2Rad * _direction.eulerAngles.z) * power,
+				Mathf.Sin(Mathf.Deg2Rad * _direction.eulerAngles.z) * power,
 				0
-            )
-        );
-        
-        _playerAnimator.SetTrigger("Thrust");
+			);
+
+		//_body.velocity += newForce;
+
+		Debug.Log("New Force: " + newForce);
+		Debug.Log("New Velocity: " + _body.velocity);
+
+		_body.AddForce( newForce );
+		//_body.AddRelativeForce( Mathf.Cos(Mathf.Deg2Rad * _direction.eulerAngles.z) * power, Mathf.Sin(Mathf.Deg2Rad * _direction.eulerAngles.z) * power, 0 );
+
+		_playerAnimator.SetTrigger("Thrust");
     }
 
     private void SetPower()
