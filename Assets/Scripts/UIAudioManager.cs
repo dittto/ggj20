@@ -42,7 +42,7 @@ public class UIAudioManager : MonoBehaviour, IPlayAudio
         {
             currentTime += Time.deltaTime;
             float newVol = Mathf.Lerp(currentVol, targetValue, currentTime / duration);
-            audioMixer.SetFloat(exposedParam, Mathf.Log10(newVol) * 20 - mixerUpperLimit);
+            audioMixer.SetFloat(exposedParam, Mathf.Log10(newVol) * 20 + mixerUpperLimit);
             yield return null;
         }
         yield break;

@@ -27,6 +27,9 @@ public class EndGame : MonoBehaviour
 	[SerializeField]
 	private AudioClip endMusic;
 
+	[SerializeField]
+	private bool isEnding;
+
 	void Start()
 	{
 		if (eventUtilsPrefab)
@@ -38,6 +41,8 @@ public class EndGame : MonoBehaviour
 		{
 			UIEventForwarder.OnForwardedEvent += EndGameEventHandler;
 		}
+
+		isEnding = false;
 	}
 
 
@@ -55,8 +60,13 @@ public class EndGame : MonoBehaviour
 
 	public void StartEnd()
 	{
-		//EndGameCanvas.SetActive(true);
-		StartCoroutine(StartEndingAfterDelay(1));
+		if( !isEnding )
+		{ 
+			//EndGameCanvas.SetActive(true);
+			StartCoroutine(StartEndingAfterDelay(2));
+
+			isEnding = true;
+		}
 	}
 
 	private IEnumerator StartEndingAfterDelay(float seconds)
