@@ -4103,7 +4103,7 @@ PrefabInstance:
     - target: {fileID: 8183472156926560415, guid: 2c5f87edf87a9914a961f6a93e05c72d,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8183472156955601133, guid: 2c5f87edf87a9914a961f6a93e05c72d,
         type: 3}
@@ -4815,7 +4815,7 @@ PrefabInstance:
     - target: {fileID: 8183472156926560415, guid: 2c5f87edf87a9914a961f6a93e05c72d,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8183472156955601133, guid: 2c5f87edf87a9914a961f6a93e05c72d,
         type: 3}
@@ -6965,6 +6965,7 @@ MonoBehaviour:
   clip: {fileID: 0}
   animator: {fileID: 0}
   endMusic: {fileID: 8300000, guid: bb81da4b8877f7a40a617767c21ac7fe, type: 3}
+  isEnding: 0
 --- !u!4 &819818062 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1429440233341800939, guid: 6fd275aa7a91a764aadc640cf703b152,
@@ -8503,7 +8504,7 @@ PrefabInstance:
     - target: {fileID: 950260641784386978, guid: 258c6e65f73be9a4cba0fe69b7b2dde2,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 950260641784386979, guid: 258c6e65f73be9a4cba0fe69b7b2dde2,
         type: 3}
@@ -10830,7 +10831,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1298278243}
-  - component: {fileID: 1298278245}
   - component: {fileID: 1298278244}
   m_Layer: 5
   m_Name: EndGameOverlay2
@@ -10885,26 +10885,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1298278245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1298278242}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db2109a6964c5104ca15d9cb8b381925, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventUtilsPrefab: {fileID: 1371875990}
-  eventForwarder: {fileID: 0}
-  clip: {fileID: 7400000, guid: 33d378013711e1f41aaa217e7d0fa32e, type: 2}
-  transitionParameter: isGameStarted
-  animator: {fileID: 0}
-  startMenuMusic: {fileID: 0}
-  explorationMusic: {fileID: 0}
-  startPressed: 0
 --- !u!1001 &1298504357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13439,7 +13419,7 @@ PrefabInstance:
     - target: {fileID: 950260641784386978, guid: 258c6e65f73be9a4cba0fe69b7b2dde2,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 950260641784386979, guid: 258c6e65f73be9a4cba0fe69b7b2dde2,
         type: 3}
@@ -13924,7 +13904,7 @@ PrefabInstance:
     - target: {fileID: 1816626420803856722, guid: 88f27b5fd72f6044a907235dc715740f,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1816626420803856723, guid: 88f27b5fd72f6044a907235dc715740f,
         type: 3}
@@ -24825,7 +24805,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8539049077147724204}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: -4, z: 0}
+  m_LocalPosition: {x: -1, y: -4, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3061510200987937058}
@@ -25020,7 +25000,7 @@ PrefabInstance:
     - target: {fileID: 7389408485749520503, guid: bea02e887a489a24e906ab6d4e423d0c,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bea02e887a489a24e906ab6d4e423d0c, type: 3}

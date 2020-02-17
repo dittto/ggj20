@@ -61,9 +61,11 @@ public class EndGame : MonoBehaviour
 	public void StartEnd()
 	{
 		if( !isEnding )
-		{ 
+		{
+			eventForwarder.EnqueueEvent(new UIAudioEventArgs(typeof(UIAudioManager), this.GetType(), AUDIO_EVENT_TYPE.FADE_OUT_AUDIO, null));
+
 			//EndGameCanvas.SetActive(true);
-			StartCoroutine(StartEndingAfterDelay(2));
+			StartCoroutine(StartEndingAfterDelay(6));
 
 			isEnding = true;
 		}

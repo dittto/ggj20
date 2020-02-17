@@ -76,7 +76,6 @@ public class Panel : MonoBehaviour
 			{
 				//eventForwarder.EnqueueEvent(new UIEventArgsBase(typeof(EndGame), this.GetType()));
 				//eventForwarder.EnqueueEvent(new UIEventArgsBase(typeof(DeactivatePlayers), this.GetType()));
-				eventForwarder.EnqueueEvent(new UIAudioEventArgs(typeof(UIAudioManager), this.GetType(), AUDIO_EVENT_TYPE.FADE_OUT_AUDIO, null));
 
 				EndGameObject.StartEnd();
 			}

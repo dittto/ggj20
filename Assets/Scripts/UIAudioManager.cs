@@ -28,6 +28,12 @@ public class UIAudioManager : MonoBehaviour, IPlayAudio
     [SerializeField]
     private String mixerTrackName;
 
+	[SerializeField]
+	private bool looping;
+
+	[SerializeField]
+	private AudioClip latestClip;
+
 	private IEnumerator StartFade(AudioMixer audioMixer, string exposedParam, float duration, float targetVolume)
     {
         float currentTime = 0;
@@ -53,11 +59,17 @@ public class UIAudioManager : MonoBehaviour, IPlayAudio
         audioSource = GetComponent<AudioSource>();
 
         UIEventForwarder.OnForwardedEvent += ForwardedEventHandler;
+
+		looping = false;
     }
 
     private void Update()
     {
-    }
+		if ( !audioSource.isPlaying && looping )
+		{
+			PlayAudio(latestClip);
+		}
+	}
 
     private void ForwardedEventHandler( UIEventArgsBase args )
     {
@@ -73,18 +85,23 @@ public class UIAudioManager : MonoBehaviour, IPlayAudio
                     {
                         case AUDIO_EVENT_TYPE.PLAY_AUDIO:
                             PlayAudio(audioArgs.clip);
+							latestClip = audioArgs.clip;
                             break;
 
 						case AUDIO_EVENT_TYPE.STOP_AUDIO:
 							audioSource.Stop();
+							looping = false;
 							break;
 
 						case AUDIO_EVENT_TYPE.ENABLE_AUDIO_LOOPING:
-							audioSource.loop = true;
+							// This doesnt seem to work
+							//audioSource.loop = true; 
+							looping = true;
 							break;
 
 						case AUDIO_EVENT_TYPE.DISABLE_AUDIO_LOOPING:
-							audioSource.loop = false;
+							//audioSource.loop = false;
+							looping = false;
 							break;
 
 						case AUDIO_EVENT_TYPE.FADE_IN_AUDIO:
