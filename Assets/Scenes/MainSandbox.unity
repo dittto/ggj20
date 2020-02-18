@@ -3339,8 +3339,8 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
-    m_LineSpacing: 0.8
-  m_Text: "Player 2\t Press L"
+    m_LineSpacing: 1
+  m_Text: "Player 2\tPress L"
 --- !u!222 &440583764
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9258,7 +9258,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Player 1\t Press A"
+  m_Text: "Player 1\t\tPress A"
 --- !u!222 &1109590694
 CanvasRenderer:
   m_ObjectHideFlags: 0
