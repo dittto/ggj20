@@ -23,18 +23,29 @@ public class PlayerControlV2 : MonoBehaviour
 
     public Animator _playerAnimator;
 
-    public void Awake()
+	private AudioSource _source;
+
+	[SerializeField]
+	private float thrustAudioCooldown;
+	private float nextTime;
+
+	[SerializeField]
+	private List<AudioClip> thrustClips;
+
+	public void Awake()
     {
         _isActiveFlag = Animator.StringToHash("isActive");
         
         ShowDirection();
 
 		_body = GetComponent<Rigidbody>();
+		_source = GetComponent<AudioSource>();
+
+		nextTime = 0;
     }
 
     public void Update()
     {
-
         if (!_isButtonHeld) {
             UpdateDirection();
         }
@@ -54,6 +65,18 @@ public class PlayerControlV2 : MonoBehaviour
             _power = 0;
             UpdateArrow();
             thrustParticle.Play();
+
+			if( Time.time > nextTime )
+			{
+				if (thrustClips.Count > 0)
+				{
+					System.Random rng = new System.Random();
+					int clipIndex = rng.Next(0, thrustClips.Count - 1);
+					_source.PlayOneShot(thrustClips[clipIndex]);
+
+					nextTime = Time.time + thrustAudioCooldown;
+				}
+			}
         }
     }
 
@@ -79,14 +102,8 @@ public class PlayerControlV2 : MonoBehaviour
 				0
 			);
 
-		//_body.velocity += newForce;
-
-		Debug.Log("New Force: " + newForce);
-		Debug.Log("New Velocity: " + _body.velocity);
-
 		_body.AddForce( newForce );
-		//_body.AddRelativeForce( Mathf.Cos(Mathf.Deg2Rad * _direction.eulerAngles.z) * power, Mathf.Sin(Mathf.Deg2Rad * _direction.eulerAngles.z) * power, 0 );
-
+	
 		_playerAnimator.SetTrigger("Thrust");
     }
 

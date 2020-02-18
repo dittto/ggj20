@@ -19140,6 +19140,12 @@ MonoBehaviour:
   _moveSpeed: 10
   _keyCode: 108
   _playerAnimator: {fileID: 5957131438434735833}
+  thrustAudioCooldown: 1
+  thrustClips:
+  - {fileID: 8300000, guid: 024712278f5c8d447a3fd8315ed3199e, type: 3}
+  - {fileID: 8300000, guid: b255bd7a04fa99445b287ea8564b4056, type: 3}
+  - {fileID: 8300000, guid: ba23a050b83139e43a2c383d53f0bb1f, type: 3}
+  - {fileID: 8300000, guid: 5e633d35939a4384eb6ed46e6647b67a, type: 3}
 --- !u!4 &5601985788415500405
 Transform:
   m_ObjectHideFlags: 0
@@ -24113,6 +24119,12 @@ MonoBehaviour:
   _moveSpeed: 10
   _keyCode: 97
   _playerAnimator: {fileID: 9168254031937961265}
+  thrustAudioCooldown: 1
+  thrustClips:
+  - {fileID: 8300000, guid: 024712278f5c8d447a3fd8315ed3199e, type: 3}
+  - {fileID: 8300000, guid: b255bd7a04fa99445b287ea8564b4056, type: 3}
+  - {fileID: 8300000, guid: ba23a050b83139e43a2c383d53f0bb1f, type: 3}
+  - {fileID: 8300000, guid: 5e633d35939a4384eb6ed46e6647b67a, type: 3}
 --- !u!95 &6164645003568655284
 Animator:
   serializedVersion: 3
