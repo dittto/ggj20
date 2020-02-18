@@ -30,6 +30,18 @@ public class EndGame : MonoBehaviour
 	[SerializeField]
 	private bool isEnding;
 
+	[SerializeField]
+	private GameObject player1;
+
+	[SerializeField]
+	private GameObject player2;
+
+	[SerializeField]
+	private GameObject rope;
+
+	[SerializeField]
+	private KeyCode _quitGameKeyCode;
+
 	void Start()
 	{
 		if (eventUtilsPrefab)
@@ -69,11 +81,23 @@ public class EndGame : MonoBehaviour
 
 			isEnding = true;
 		}
+
+		if (isEnding)
+		{
+			if (Input.GetKeyUp(_quitGameKeyCode))
+			{
+				Application.Quit();
+			}
+		}
 	}
 
 	private IEnumerator StartEndingAfterDelay(float seconds)
 	{
 		yield return new WaitForSeconds(seconds);
+
+		player1.SetActive(false);
+		player2.SetActive(false);
+		rope.SetActive(false);
 
 		// FIXME: start animation sequence here
 		EndGameCanvas.SetActive(true);
